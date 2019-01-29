@@ -1,19 +1,32 @@
-// Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
+    //x pos
+    //y pos
+
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+
+
     this.sprite = 'images/enemy-bug.png';
 };
 
+//const allEnemies = [];
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
+//this is controlled through code not the user
+
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    //if enemy is not passed boundary
+        //move forward
+        //increment x by speed *dt
+    //else
+        //reset position to start
 };
 
 // Draw the enemy on the screen, required method for game
@@ -25,10 +38,69 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+class Hero {
+    constructor () {
+        this.sprite = 'images/char-boy.png';
+        this.step = 101;
+        this.jump = 83
+        this.startX = this.step * 2 ;
+        this.startY = (this.jump * 5) - 20; 
+        this.x = this.startX;
+        this.y = this.startY;
+        
+
+    }
+    //draw our hero using render
+    //we are going to use the same code in Enemy
+    
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+    // update () {
+    // //what is happening to our hero here, collided? 
+    // //win?
+    // for (let enemy of allEnemies) {
+    //     console.log(enemy)
+    // }
+  //}
+    handleInput(input) {
+        switch(input) {
+            case 'left':
+            if( this.x > 0) {
+                this.x -= this.step;
+            } 
+                 break;
+            case 'up': 
+            if(this.y > this.jump) {
+                this.y -= this.jump;
+            }
+               break;
+            case 'right': 
+                if (this.x < this.step *4 ) {
+                this.x += this.step;
+            }
+                break;
+            case 'down':
+            if( this.y < this.jump *4) {
+                this.y += this.jump;
+            }
+                break;
+
+            }
+        
+        }
+
+    }
+
+
+const player = new Hero()
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+    //init allEnemies array
+    //For each enemy create and push new Enemy object in the above array
 
 
 
