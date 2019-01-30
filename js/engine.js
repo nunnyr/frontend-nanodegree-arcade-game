@@ -31,6 +31,13 @@ var Engine = (function(global) {
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
+    replay.addEventListener("click", event => {
+        const clickTarget = event.target;
+        modal.classList.toggle("hide");
+        player.reset();
+        player.victory = false;
+        win.requestAnimationFrame(main);
+    });
 
     canvas.width = 505;
     canvas.height = 606;
@@ -61,13 +68,7 @@ var Engine = (function(global) {
          */
 
 
-        replay.addEventListener("click", event => {
-            const clickTarget = event.target;
-            modal.classList.toggle("hide");
-            player.reset();
-            player.victory = false;
-            win.requestAnimationFrame(main);
-        });
+       
 
         if (player.victory === true) {
             win.cancelAnimationFrame(id);
