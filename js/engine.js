@@ -25,15 +25,16 @@ var Engine = (function(global) {
         lastTime,
         id; 
 
-    canvas.width = 505;
-    canvas.height = 606;
-    doc.body.appendChild(canvas);
 
     const modal = document.querySelector(".modal-bg");
     const replay = document.querySelector(".modal-button");
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
+
+    canvas.width = 505;
+    canvas.height = 606;
+    doc.body.appendChild(canvas);
     function main() {
         /* Get our time delta information which is required if your game
          * requires smooth animation. Because everyone's computer processes
@@ -61,7 +62,6 @@ var Engine = (function(global) {
 
 
         replay.addEventListener("click", event => {
-
             const clickTarget = event.target;
             modal.classList.toggle("hide");
             player.reset();
@@ -75,7 +75,7 @@ var Engine = (function(global) {
             modal.classList.toggle("show");
         }
         else {
-            id = window.requestAnimationFrame(main);
+            id = win.requestAnimationFrame(main);
         }
     }
 
