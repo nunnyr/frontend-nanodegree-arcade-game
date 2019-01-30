@@ -95,10 +95,16 @@ class Hero {
                     this.reset();
                 }
             
-        
+            if (this.y === 55) {
+                console.log('Win');
+                this.victory = true;
+            }
         }
-   //win?
+
+          
     }
+        
+
         reset () {
             this.y = this.startY;
             this.x = this.startX;
