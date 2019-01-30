@@ -79,8 +79,6 @@ var Engine = (function(global) {
         }
     }
 
-        
-    }
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
@@ -88,10 +86,13 @@ var Engine = (function(global) {
      */
 
     function init() {
+        
         reset();
         lastTime = Date.now();
         main();
+        
     }
+
 
     /* This function is called by main (our game loop) and itself calls all
      * of the functions which may need to update entity's data. Based on how
@@ -207,4 +208,5 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
+    
 })(this);

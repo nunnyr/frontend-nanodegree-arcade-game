@@ -101,15 +101,8 @@ class Hero {
 
 
 
-replay.addEventListener('click', function () {
-    modal.classList.toggle('hide');
-    player.reset();
-    player.victory = false;
-    win.requestAnimationFrame(main);
-});
 
 const player = new Hero();
-
 const bug1 = new Enemy(-101, 0, 200);
 const bug2 = new Enemy(-101, 83, 300);
 const bug3 = new Enemy((-101*2.5), 83, 300);
